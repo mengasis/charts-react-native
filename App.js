@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import { Platform, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
+
+import LineChartOne from './components/LineChartOne'
 
 export default class App extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
 				<Text style={styles.welcome}>Line Chart</Text>
+				<LineChartOne />
 			</View>
 		)
 	}
