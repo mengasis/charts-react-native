@@ -7,6 +7,8 @@ import { LineChart } from 'react-native-charts-wrapper'
 
 const COLOR_PURPLE = processColor('#697dfb')
 
+import data from '../utils/data'
+
 class LineChartOne extends React.Component {
 	constructor() {
 		super()
@@ -19,15 +21,12 @@ class LineChartOne extends React.Component {
 	}
 
 	componentDidMount() {
-		const valueRange = 100
-		const size = 30
-
 		this.setState(
 			update(this.state, {
 				xAxis: {
 					$set: {
 						textColor: processColor('red'),
-						textSize: 16,
+						textSize: 5,
 						gridColor: processColor('red'),
 						gridLineWidth: 1,
 						axisLineColor: processColor('darkgray'),
@@ -37,7 +36,8 @@ class LineChartOne extends React.Component {
 							spaceLength: 10
 						},
 						avoidFirstLastClipping: true,
-						position: 'BOTTOM'
+						position: 'BOTTOM',
+						valueFormatter: data.map(item => item.date)
 					}
 				},
 				yAxis: {
@@ -54,7 +54,7 @@ class LineChartOne extends React.Component {
 					$set: {
 						dataSets: [
 							{
-								values: this._randomYValues(valueRange, size),
+								values: data.map(item => item.value),
 								label: '',
 								config: {
 									lineWidth: 1.5,
@@ -73,17 +73,6 @@ class LineChartOne extends React.Component {
 				}
 			})
 		)
-	}
-
-	_randomYValues(range: number, size: number) {
-		const nextValueMaxDiff = 0.2
-		let lastValue = range / 2
-
-		return _.times(size, () => {
-			let min = lastValue * (1 - nextValueMaxDiff)
-			let max = lastValue * (1 + nextValueMaxDiff)
-			return { y: Math.random() * (max - min) + min }
-		})
 	}
 
 	handleSelect(event) {
