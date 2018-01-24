@@ -5,8 +5,7 @@ import update from 'immutability-helper'
 import _ from 'lodash'
 import { LineChart } from 'react-native-charts-wrapper'
 
-const COLOR = processColor('#6d7c86')
-const COLORCIRCLE = processColor('#385465')
+const COLOR = processColor('#385465')
 
 import data from '../utils/data'
 
@@ -26,7 +25,7 @@ class LineChartOne extends React.Component {
 			update(this.state, {
 				xAxis: {
 					$set: {
-						textColor: processColor('red'),
+						textColor: COLOR,
 						textSize: 5,
 						gridLineWidth: 1,
 						axisLineWidth: 1.5,
@@ -59,15 +58,14 @@ class LineChartOne extends React.Component {
 								label: '',
 								config: {
 									lineWidth: 2,
-									drawCircles: true,
-									drawCubicIntensity: 0.8,
 									drawCubic: true,
+									circleRadius: 3.2,
 									drawHighlightIndicators: false,
-									color: COLORCIRCLE,
+									color: COLOR,
 									drawFilled: true,
-									fillColor: COLORCIRCLE,
-									fillAlpha: 70,
-									circleColor: COLORCIRCLE
+									fillColor: COLOR,
+									fillAlpha: 100,
+									circleColor: COLOR
 								}
 							}
 						]
