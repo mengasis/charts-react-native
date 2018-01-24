@@ -27,15 +27,13 @@ class LineChartOne extends React.Component {
 					$set: {
 						textColor: processColor('red'),
 						textSize: 5,
-						gridColor: processColor('red'),
 						gridLineWidth: 1,
-						axisLineColor: processColor('darkgray'),
 						axisLineWidth: 1.5,
 						gridDashedLine: {
-							lineLength: 10,
+							lineLength: 0,
 							spaceLength: 10
 						},
-						avoidFirstLastClipping: true,
+						avoidFirstLastClipping: false,
 						position: 'BOTTOM',
 						valueFormatter: data.map(item => item.date)
 					}
@@ -57,9 +55,9 @@ class LineChartOne extends React.Component {
 								values: data.map(item => item.value),
 								label: '',
 								config: {
-									lineWidth: 1.5,
-									drawCircles: false,
-									drawCubicIntensity: 0.3,
+									lineWidth: 2,
+									drawCircles: true,
+									drawCubicIntensity: 0.8,
 									drawCubic: true,
 									drawHighlightIndicators: false,
 									color: COLOR_PURPLE,
