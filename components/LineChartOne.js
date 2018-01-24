@@ -42,6 +42,8 @@ class LineChartOne extends React.Component {
 				yAxis: {
 					$set: {
 						left: {
+							axisMinimum: 0,
+							axisMaximum: 42000,
 							drawGridLines: false
 						},
 						right: {
