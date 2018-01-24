@@ -29,6 +29,7 @@ class LineChartOne extends React.Component {
 						textSize: 5,
 						gridLineWidth: 1,
 						axisLineWidth: 1.5,
+						labelRotationAngle: 300,
 						gridDashedLine: {
 							lineLength: 0,
 							spaceLength: 10
